@@ -1,0 +1,7 @@
+*, *:before, *:after, html {
+  box-sizing: border-box;
+}
+
+* + * {
+  margin-top: 1rem;
+}

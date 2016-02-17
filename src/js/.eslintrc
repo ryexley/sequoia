@@ -1,0 +1,6 @@
+{
+  "extends": [ "leankit/es6", "leankit/react" ],
+  "rules": {
+    "no-class-assign": 0
+  }
+}
