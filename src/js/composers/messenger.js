@@ -1,9 +1,10 @@
 import postal from "postal";
 import DiagnosticsWireTap from "postal.diagnostics";
+import { EventEmitterModule as EventEmitter } from "./event-emitter";
 
-const messenger = function( { target, channelName = "sequoia" } ) {
+const messenger = ( { target, channelName = "sequoia" } ) => {
 
-  return class extends target {
+  class MessengerModule extends target {
     constructor() {
       super();
 
@@ -95,6 +96,9 @@ const messenger = function( { target, channelName = "sequoia" } ) {
     }
   };
 
+  MessengerModule = EventEmitter( MessengerModule );
+
+  return MessengerModule;
 };
 
 export default messenger;
