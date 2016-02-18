@@ -14,7 +14,12 @@ const webpackConfig = {
     filename: "index.js"
   },
   plugins: [
-    new webpack.optimize.DedupePlugin()
+    new webpack.optimize.DedupePlugin(),
+    // new webpack.optimize.UglifyJsPlugin( { compress: { warnings: false } } ),
+
+    // Ignore the attempt to load vertx...for the use of when.js
+    // https://github.com/webpack/webpack/issues/353#issuecomment-48665676
+    new webpack.IgnorePlugin( /vertx/ )
   ],
   resolve: ["", ".js", ".jsx", ".json"],
   devtool: "source-map",
